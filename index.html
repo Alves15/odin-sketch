@@ -11,26 +11,26 @@
 
     <script>
         const container = document.querySelector('#container');
-        
-        
-        for (let i = 0; i < 20; i++){
+           
+        for (let i = 0; i < 400; i++){
             let gridblock = document.createElement('div'); 
             gridblock.classList.add('gridblock');       
             container.appendChild(gridblock);
         }
-/*
-        const toggleblock = document.querySelector('.gridblock');
-        toggleblock.addEventListener('mouseover', () => {
-            gridblock.classList.remove('gridblock'); 
-            gridblock.classList.add('gridblock-painted'); 
+
+        let blocks = document.querySelectorAll(".gridblock");
+        blocks.forEach((block) => {
+            block.addEventListener('mouseover', () => { 
+            block.classList.add('gridblock-painted'); 
+            });
         });
-*/
+
     </script>
 
     <style>
         #container {
             display: flex;
-            width: 80px;
+            width: 400px;
             margin: 0;
             padding: 0;
             flex-wrap: wrap;
@@ -47,7 +47,7 @@
         }
 
         .gridblock-painted {
-            background-color: red;
+            background-color: #111;
             margin: 0;
             padding: 0;
             border: 1px solid black;
