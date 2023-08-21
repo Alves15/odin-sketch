@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+    </div>
+
+    <script>
+        const container = document.querySelector('#container');
+        
+        
+        for (let i = 0; i < 20; i++){
+            let gridblock = document.createElement('div'); 
+            gridblock.classList.add('gridblock');       
+            container.appendChild(gridblock);
+        }
+/*
+        const toggleblock = document.querySelector('.gridblock');
+        toggleblock.addEventListener('mouseover', () => {
+            gridblock.classList.remove('gridblock'); 
+            gridblock.classList.add('gridblock-painted'); 
+        });
+*/
+    </script>
+
+    <style>
+        #container {
+            display: flex;
+            width: 80px;
+            margin: 0;
+            padding: 0;
+            flex-wrap: wrap;
+        }
+
+        .gridblock {
+            background-color: slategrey;
+            margin: 0;
+            padding: 0;
+            border: 1px solid black;
+            width: 14px;
+            height: 14px;
+            flex-shrink: 0;
+        }
+
+        .gridblock-painted {
+            background-color: red;
+            margin: 0;
+            padding: 0;
+            border: 1px solid black;
+            width: 14px;
+            height: 14px;
+          
+        }
+    </style>
+</body>
+</html>
