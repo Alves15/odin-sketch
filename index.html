@@ -6,6 +6,7 @@
     <title>Document</title>
 </head>
 <body>
+    <button id="btn">Choose grid size</button>
     <div id="container">
     </div>
 
@@ -24,6 +25,19 @@
             block.classList.add('gridblock-painted'); 
             });
         });
+
+        const btn = document.querySelector('#btn');
+        btn.addEventListener('click', () => {
+            let gridsize = prompt("Select a grid size from 2 to 100.");
+            let blocks = document.querySelectorAll(".gridblock");
+            blocks.forEach((block) => {
+                block.remove(); 
+            });
+        });
+            
+        
+
+
 
     </script>
 
