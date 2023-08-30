@@ -6,14 +6,14 @@
     <title>Document</title>
 </head>
 <body>
-    <button id="btn">Choose grid size</button>
+    <button id="btn">Grid Size</button>
     <div id="container">
     </div>
 
     <script>
         const container = document.querySelector('#container');
            
-        for (let i = 0; i < 400; i++){
+        for (let i = 0; i < 4; i++){
             let gridblock = document.createElement('div'); 
             gridblock.classList.add('gridblock');       
             container.appendChild(gridblock);
@@ -26,17 +26,22 @@
             });
         });
 
+        
         const btn = document.querySelector('#btn');
         btn.addEventListener('click', () => {
-            let gridsize = prompt("Select a grid size from 2 to 100.");
+            let gridsize = Number(prompt("Select a grid size from 2 to 100."));
+            console.log(typeof(gridsize));
             let blocks = document.querySelectorAll(".gridblock");
             blocks.forEach((block) => {
                 block.remove(); 
             });
+            for (let i = 0; i != gridsize * gridsize; i++){
+                let gridblock = document.createElement('div'); 
+                gridblock.classList.add('gridblock');       
+                container.appendChild(gridblock);
+            }    
         });
-            
         
-
 
 
     </script>
@@ -44,29 +49,27 @@
     <style>
         #container {
             display: flex;
-            width: 400px;
+            width: 500px;
+            height: 500px;
             margin: 0;
             padding: 0;
+            display: flex;
             flex-wrap: wrap;
+            justify-content: flex-start;
+            background-color: red;
         }
 
         .gridblock {
             background-color: slategrey;
             margin: 0;
             padding: 0;
-            border: 1px solid black;
-            width: 14px;
-            height: 14px;
-            flex-shrink: 0;
+            width: 16px;   
+            height: 16px;        
+            flex: 1;         
         }
 
         .gridblock-painted {
             background-color: #111;
-            margin: 0;
-            padding: 0;
-            border: 1px solid black;
-            width: 14px;
-            height: 14px;
           
         }
     </style>
