@@ -12,25 +12,31 @@
 
     <script>
         const container = document.querySelector('#container');
-           
-        for (let i = 0; i < 4; i++){
+
+        function blockevent (cls){
+            const blocks = document.querySelectorAll(cls);
+            blocks.forEach((block) => {
+                block.addEventListener('mouseover', () => { 
+                    block.classList.add('gridblock-painted'); 
+                });
+            });
+        }
+        
+        for (let i = 0; i < 0; i++){
             let gridblock = document.createElement('div'); 
             gridblock.classList.add('gridblock');       
             container.appendChild(gridblock);
         }
+    
 
-        let blocks = document.querySelectorAll(".gridblock");
-        blocks.forEach((block) => {
-            block.addEventListener('mouseover', () => { 
-            block.classList.add('gridblock-painted'); 
-            });
-        });
+        blockevent('.gridblock');
+        
+      
 
         
         const btn = document.querySelector('#btn');
         btn.addEventListener('click', () => {
             let gridsize = Number(prompt("Select a grid size from 2 to 100."));
-            console.log(typeof(gridsize));
             let blocks = document.querySelectorAll(".gridblock");
             blocks.forEach((block) => {
                 block.remove(); 
@@ -40,6 +46,8 @@
                 gridblock.classList.add('gridblock');       
                 container.appendChild(gridblock);
             }    
+
+            blockevent('.gridblock');
         });
         
 
@@ -48,24 +56,21 @@
 
     <style>
         #container {
+            width: 96x;
+            height: 96px;        
+            background-color: green;
             display: flex;
-            width: 500px;
-            height: 500px;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: flex-start;
-            background-color: red;
+            flex-wrap: wrap;     
         }
 
         .gridblock {
             background-color: slategrey;
+            width: 14px;
+            height: 14px;      
+            border: 1px solid black; 
+            flex: 1 0 auto;
             margin: 0;
             padding: 0;
-            width: 16px;   
-            height: 16px;        
-            flex: 1;         
         }
 
         .gridblock-painted {
