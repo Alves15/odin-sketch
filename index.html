@@ -9,8 +9,8 @@
     <button id="btn">Grid Size</button>
     <div id="container">
     </div>
-
     <script>
+
         const container = document.querySelector('#container');
 
         function blockevent (cls){
@@ -21,8 +21,13 @@
                 });
             });
         }
+
         
-        for (let i = 0; i < 0; i++){
+        function gridcreate (){
+
+        }
+        
+        for (let i = 0; i < 256; i++){
             let gridblock = document.createElement('div'); 
             gridblock.classList.add('gridblock');       
             container.appendChild(gridblock);
@@ -30,7 +35,6 @@
     
 
         blockevent('.gridblock');
-        
       
 
         
@@ -51,26 +55,32 @@
         });
         
 
-
+        
     </script>
 
     <style>
         #container {
-            width: 96x;
-            height: 96px;        
+            width: 500px;
+            height: 500px;        
             background-color: green;
             display: flex;
-            flex-wrap: wrap;     
+            flex-wrap: wrap;
+            margin: 0;
+            padding: 0;
+        }
+
+        #row {
+            display: flex;
+            background-color: red;
+            
         }
 
         .gridblock {
             background-color: slategrey;
             width: 14px;
-            height: 14px;      
+            height: 14px;
             border: 1px solid black; 
             flex: 1 0 auto;
-            margin: 0;
-            padding: 0;
         }
 
         .gridblock-painted {
