@@ -28,6 +28,8 @@
             blocks.forEach((block) => {
                 block.style.height = containersize / (gridsize / 2);
                 block.style.width = containersize / (gridsize / 2);
+                parseInt(block.style.height);
+                console.log(typeof(block.style.height));
             });
         }
         
