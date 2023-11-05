@@ -12,7 +12,7 @@
     
         const container = document.querySelector('#container');
         const containersize = 500;
-        let gridsize = 4;
+        let gridsize = 6;
 
         function blockpaint (cls){
             const blocks = document.querySelectorAll(cls);
@@ -26,15 +26,15 @@
         function blocksize (cls){
             const blocks = document.querySelectorAll(cls);
             blocks.forEach((block) => {
-                block.style.height = containersize / (gridsize / 2);
-                block.style.width = containersize / (gridsize / 2);
-                parseInt(block.style.height);
-                console.log(typeof(block.style.height));
+                let height = containersize / (gridsize * gridsize / gridsize) - 2 + 'px';
+                block.style.height = height;
+                let width = containersize / (gridsize * gridsize / gridsize) - 2 + 'px';
+                block.style.width = width;
             });
         }
         
         function gridcreate (){
-            for (let i = 0; i < gridsize; i++){
+            for (let i = 0; i < gridsize * gridsize; i++){
             let gridblock = document.createElement('div'); 
             gridblock.classList.add('gridblock');       
             container.appendChild(gridblock);
@@ -80,7 +80,7 @@
             border: 1px solid black; 
             width: 14px;
             height: 14px;
-            flex: 1 0 auto;      
+            flex: 1 1 auto;      
         }
 
         .gridblock-painted {
