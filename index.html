@@ -12,39 +12,26 @@
     
         const container = document.querySelector('#container');
         const containersize = 500;
-        let gridsize = 6;
-
-        function blockpaint (cls){
-            const blocks = document.querySelectorAll(cls);
-            blocks.forEach((block) => {
-                block.addEventListener('mouseover', () => { 
-                    block.classList.add('gridblock-painted'); 
-                });
-            });
-        }
-
-        function blocksize (cls){
-            const blocks = document.querySelectorAll(cls);
-            blocks.forEach((block) => {
-                let height = containersize / (gridsize * gridsize / gridsize) - 2 + 'px';
-                block.style.height = height;
-                let width = containersize / (gridsize * gridsize / gridsize) - 2 + 'px';
-                block.style.width = width;
-            });
-        }
-        
-        function gridcreate (){
+        let gridsize = 3;
+     
+        function gridcreate (gridsize){
+            
             for (let i = 0; i < gridsize * gridsize; i++){
             let gridblock = document.createElement('div'); 
             gridblock.classList.add('gridblock');       
             container.appendChild(gridblock);
+            let height = containersize / (gridsize * gridsize / gridsize) - 2 + 'px';
+            gridblock.style.height = height;
+            let width = containersize / (gridsize * gridsize / gridsize) - 2 + 'px';
+            gridblock.style.width = width;    
+            gridblock.addEventListener('mouseover', () => { 
+                    gridblock.classList.add('gridblock-painted'); 
+                });
             }
 
-            blocksize('.gridblock');
         }
         
-        gridcreate();
-        blockpaint('.gridblock');
+        gridcreate(gridsize);
       
         const btn = document.querySelector('#btn');
         btn.addEventListener('click', () => {
@@ -53,8 +40,8 @@
             blocks.forEach((block) => {
                 block.remove(); 
             });
-            gridcreate();
-            blockpaint('.gridblock');
+            gridcreate(gridsize);
+
         });
            
     </script>
