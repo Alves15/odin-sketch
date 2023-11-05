@@ -15,7 +15,7 @@
         let gridsize = 3;
      
         function gridcreate (gridsize){
-            
+
             for (let i = 0; i < gridsize * gridsize; i++){
             let gridblock = document.createElement('div'); 
             gridblock.classList.add('gridblock');       
@@ -30,8 +30,6 @@
             }
 
         }
-        
-        gridcreate(gridsize);
       
         const btn = document.querySelector('#btn');
         btn.addEventListener('click', () => {
@@ -41,9 +39,9 @@
                 block.remove(); 
             });
             gridcreate(gridsize);
-
         });
-           
+
+        gridcreate(gridsize);          
     </script>
 
     <style>
@@ -61,7 +59,6 @@
             align-content: flex-start;
         }
 
-
         .gridblock {
             background-color: slategrey;
             border: 1px solid black; 
@@ -72,7 +69,6 @@
 
         .gridblock-painted {
             background-color: #111;
-          
         }
     </style>
 </body>
