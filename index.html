@@ -6,7 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    <button id="btn">Grid Size</button>
 
     <div class="slidecontainer">
         <input type="range" min="3" max="100" value="3" class="slider" id="range">
@@ -36,28 +35,17 @@
             }
 
         }
-      
-        const btn = document.querySelector('#btn');
-        btn.addEventListener('click', () => {
-            let gridsize = Number(prompt("Select a grid size from 2 to 100."));
+
+        range.onchange = function() {
+            let gridsize = range.value;
             let blocks = document.querySelectorAll(".gridblock");
             blocks.forEach((block) => {
                 block.remove(); 
             });
             gridcreate(gridsize);
-        });
+        }
 
-        gridcreate(gridsize);   
-        
-        btn.addEventListener('click', () => {
-            let gridsize = Number(prompt("Select a grid size from 2 to 100."));
-            let blocks = document.querySelectorAll(".gridblock");
-            blocks.forEach((block) => {
-                block.remove(); 
-            });
-            gridcreate(gridsize);
-        });
-
+        gridcreate(gridsize);
     </script>
 
     <style>
