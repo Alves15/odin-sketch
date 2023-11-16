@@ -9,13 +9,14 @@
     <button id="btn">Grid Size</button>
 
     <div class="slidecontainer">
-        <input type="range" min="3" max="100" value="3" class="slider" id="myRange">
+        <input type="range" min="3" max="100" value="3" class="slider" id="range">
     </div>
 
     <div id="container"></div>
     <script>
     
         const container = document.querySelector('#container');
+        const range = document.querySelector('#range');
         const containersize = 500;
         let gridsize = 3;
      
@@ -46,7 +47,17 @@
             gridcreate(gridsize);
         });
 
-        gridcreate(gridsize);          
+        gridcreate(gridsize);   
+        
+        btn.addEventListener('click', () => {
+            let gridsize = Number(prompt("Select a grid size from 2 to 100."));
+            let blocks = document.querySelectorAll(".gridblock");
+            blocks.forEach((block) => {
+                block.remove(); 
+            });
+            gridcreate(gridsize);
+        });
+
     </script>
 
     <style>
@@ -75,6 +86,7 @@
         .gridblock-painted {
             background-color: #111;
         }
+
     </style>
 </body>
 </html>
